@@ -1,0 +1,18 @@
+name: "Kindle Image Server"
+version: "1.0.7"
+slug: "kindle_image_server"
+description: "Simple Flask server to serve a dynamic Kindle dashboard image"
+arch:
+  - amd64
+  - aarch64
+startup: services
+boot: auto
+homeassistant_api: true
+init: false
+panel_icon: mdi:television
+options:
+  sensor: "input_text.dashboard_message"
+schema:
+  sensor: str
+ports:
+  5000/tcp: 5000
