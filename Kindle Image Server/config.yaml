@@ -3,6 +3,12 @@ version: "1.0.0"
 slug: "kindle_image_server"
 description: "Create a dynamic Kindle dashboard image from Home Assistant input_text."
 startup: services
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
 boot: auto
 homeassistant_api: true
 init: false
