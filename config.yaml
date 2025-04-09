@@ -1,10 +1,7 @@
 name: "Kindle Image Server"
-version: "1.0.7"
+version: "1.0.0"
 slug: "kindle_image_server"
-description: "Simple Flask server to serve a dynamic Kindle dashboard image"
-arch:
-  - amd64
-  - aarch64
+description: "Create a dynamic Kindle dashboard image from Home Assistant input_text."
 startup: services
 boot: auto
 homeassistant_api: true

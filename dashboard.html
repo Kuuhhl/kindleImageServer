@@ -1,35 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            background: white;
-            color: black;
-            font-family: monospace;
-            font-size: 100px;
-        }
+  <meta charset="UTF-8">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      color: black;
+      font-family: monospace;
+      font-size: 10px;
+    }
 
-        .container {
-            rotate: -90deg;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    .container {
+      transform: rotate(90deg);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="message">
-            {{ message }}
-        </div>
+  <div class="container">
+    <div class="message">
+      {{ message }}
     </div>
+  </div>
+
+  <script>
+  // make text bigger until it reaches edge of container
+  function adjustFontSize() {
+      const container = document.querySelector('.container');
+      const message = document.querySelector('.message');
+
+      message.style.fontSize = '10px';
+      let fontSize = 10;
+
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+
+      const maxIterations = 1000;
+      let iterations = 0;
+
+      while (iterations < maxIterations) {
+        // Increase the font size by a small amount
+        fontSize += 1;
+        message.style.fontSize = fontSize + 'px';
+        iterations++;
+
+        // bigger than container -> go back one step
+        if (message.scrollWidth > containerWidth || message.scrollHeight > containerHeight) {
+          // Step back one increment
+          fontSize -= 1;
+          message.style.fontSize = fontSize + 'px';
+          break;
+        }
+      }
+    }
+
+    window.addEventListener('load', adjustFontSize);
+    window.addEventListener('resize', adjustFontSize);
+  </script>
 </body>
 </html>

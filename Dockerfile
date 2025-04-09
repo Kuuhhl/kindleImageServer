@@ -44,5 +44,4 @@ COPY . .
 
 RUN chmod +x run.sh
 
-CMD ["echo", "Starting Kindle Image Server"]
 CMD ["./run.sh"]

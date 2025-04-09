@@ -2,3 +2,5 @@ flask
 jinja2
 playwright
 requests
+Pillow
+async_lru
